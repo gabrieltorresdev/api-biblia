@@ -15,3 +15,6 @@ queues_start:
 
 queues_stop:
 	docker compose exec app supervisorctl stop laravel-worker:*
+
+artisan:
+	docker compose exec app bash -ci "php artisan $(filter-out $@,$(MAKECMDGOALS))"
