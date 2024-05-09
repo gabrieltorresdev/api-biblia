@@ -31,4 +31,9 @@ return [
         ],
     ],
 
+    'abibliadigital' => [
+        'url' => env('API_ABIBLIADIGITAL_URL'),
+        'key' => env('API_ABIBLIADIGITAL_KEY'),
+    ]
+
 ];
