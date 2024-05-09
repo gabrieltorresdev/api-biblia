@@ -3,18 +3,18 @@ services:
     build:
       context: .
       dockerfile: ./docker/local/Dockerfile
-    container_name: app-api_gcjur
+    container_name: app-api_biblia
     tty: true
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
       - ./src:/var/www
     networks:
-      - api_gcjur
+      - api_biblia
 
   nginx:
     image: nginx:alpine
-    container_name: nginx-api_gcjur
+    container_name: nginx-api_biblia
     ports:
       - "8000:80"
     depends_on:
@@ -23,8 +23,9 @@ services:
       - ./src:/var/www
       - ./docker/local/config/nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
-      - api_gcjur
+      - api_biblia
 
 networks:
-  api_gcjur:
+  api_biblia:
+    name: network-api_biblia
     driver: bridge
